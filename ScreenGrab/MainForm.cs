@@ -13,8 +13,7 @@ namespace ScreenGrab {
     public partial class MainForm : Form {
         
         // Resourses
-        private Image pictureBoxCloseImage = new Bitmap("icon/closebutton.png");
-        private Image pictureBoxCloseImageHover = new Bitmap("icon/closebutton.gif");
+        //private Image pictureBoxCloseImage = new Bitmap("icon/cross.png");
 
         // Keys for screen
         Keys screen = Keys.C; bool shift = true, ctrl = true, alt = false;
@@ -36,6 +35,7 @@ namespace ScreenGrab {
             textBoxScreen.Text += shift == true ? "Shift + " : "";
             textBoxScreen.Text += screen;
 
+            //pictureBoxClose.Image = pictureBoxCloseImage;
             pictureBoxClose.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 

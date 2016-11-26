@@ -83,7 +83,7 @@
             // pictureBoxClose
             // 
             this.pictureBoxClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.pictureBoxClose.Image = global::ScreenGrab.Properties.Resources.closeButton;
+            this.pictureBoxClose.Image = global::ScreenGrab.Properties.Resources.cross;
             this.pictureBoxClose.InitialImage = null;
             this.pictureBoxClose.Location = new System.Drawing.Point(960, 0);
             this.pictureBoxClose.Name = "pictureBoxClose";
@@ -126,7 +126,6 @@
             this.KeyPreview = true;
             this.Name = "EditForm";
             this.Text = "EditForm";
-//            this.Deactivate += new System.EventHandler(this.EditForm_Deactivate);
             this.Load += new System.EventHandler(this.EditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBottom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();

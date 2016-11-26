@@ -178,7 +178,6 @@
             this.textBoxScreen.Size = new System.Drawing.Size(244, 23);
             this.textBoxScreen.TabIndex = 3;
             this.textBoxScreen.Click += new System.EventHandler(this.textBoxScreen_Click);
-//            this.textBoxScreen.TextChanged += new System.EventHandler(this.textBoxScreen_TextChanged);
             // 
             // label2
             // 
@@ -211,7 +210,7 @@
             // notifyIcon
             // 
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-            this.notifyIcon.Text = "notifyIcon";
+            this.notifyIcon.Text = "Screen Grab";
             this.notifyIcon.Visible = true;
             this.notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseClick);
             // 
@@ -223,7 +222,6 @@
             this.exitToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
             this.contextMenuStrip.Size = new System.Drawing.Size(119, 70);
-     //       this.contextMenuStrip.MouseCaptureChanged += new System.EventHandler(this.contextMenuStrip_MouseCaptureChanged);
             // 
             // screenToolStripMenuItem
             // 
@@ -248,7 +246,7 @@
             // pictureBoxClose
             // 
             this.pictureBoxClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.pictureBoxClose.Image = global::ScreenGrab.Properties.Resources.cancel;
+            this.pictureBoxClose.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxClose.Image")));
             this.pictureBoxClose.InitialImage = null;
             this.pictureBoxClose.Location = new System.Drawing.Point(310, 0);
             this.pictureBoxClose.Name = "pictureBoxClose";
@@ -256,14 +254,11 @@
             this.pictureBoxClose.TabIndex = 3;
             this.pictureBoxClose.TabStop = false;
             this.pictureBoxClose.Click += new System.EventHandler(this.pictureBoxClose_Click);
-       //     this.pictureBoxClose.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxClose_Paint);
-      //      this.pictureBoxClose.MouseLeave += new System.EventHandler(this.pictureBoxClose_MouseLeave);
-      //      this.pictureBoxClose.MouseHover += new System.EventHandler(this.pictureBoxClose_MouseHover);
             // 
             // pictureBoxHead
             // 
             this.pictureBoxHead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.pictureBoxHead.Image = global::ScreenGrab.Properties.Resources.head;
+            this.pictureBoxHead.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxHead.Image")));
             this.pictureBoxHead.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxHead.Name = "pictureBoxHead";
             this.pictureBoxHead.Size = new System.Drawing.Size(350, 40);
@@ -286,7 +281,6 @@
             this.Text = "Form1";
             this.Deactivate += new System.EventHandler(this.MainForm_Deactivate);
             this.Load += new System.EventHandler(this.MainForm_Load);
-     //       this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

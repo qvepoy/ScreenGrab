@@ -25,10 +25,10 @@ namespace ScreenGrab {
             final = false;
 
             // Cycle for multiply screen
-            for (int i = 0; i < System.Windows.Forms.Screen.AllScreens.Length; i++) {
-                screenWeidth += System.Windows.Forms.Screen.AllScreens[i].Bounds.Width;
-                if (screenHeight < System.Windows.Forms.Screen.AllScreens[i].Bounds.Height)
-                    screenHeight = System.Windows.Forms.Screen.AllScreens[i].Bounds.Height;
+            for (int i = 0; i < Screen.AllScreens.Length; i++) {
+                screenWeidth += Screen.AllScreens[i].Bounds.Width;
+                if (screenHeight < Screen.AllScreens[i].Bounds.Height)
+                    screenHeight = Screen.AllScreens[i].Bounds.Height;
             }
 
             datatime = DataTime();
@@ -53,7 +53,7 @@ namespace ScreenGrab {
 
         // Fit picture to pictureBox, optimize picbox size
         public void OptimizePictureBox(PictureBox pictureBox) {
-            bool dontMovebleWidth = false, dontMobebleHeight = false;
+            bool dontMovebleWidth = false, dontMovebleHeight = false;
             if (picture.Size.Width < pictureBox.Width) {
                 pictureBox.Location = new Point(pictureBox.Location.X + (pictureBox.Size.Width - picture.Size.Width) / 2, pictureBox.Location.Y);
                 pictureBox.Width = picture.Width;
@@ -63,10 +63,10 @@ namespace ScreenGrab {
             if (picture.Size.Height < pictureBox.Height) {
                 pictureBox.Location = new Point(pictureBox.Location.X, pictureBox.Location.Y + (pictureBox.Size.Height - picture.Size.Height) / 2);
                 pictureBox.Height = picture.Height;
-                dontMobebleHeight = true;
+                dontMovebleHeight = true;
             }
 
-            if (dontMobebleHeight && dontMovebleWidth)
+            if (dontMovebleHeight && dontMovebleWidth)
                 Moveble = false;
         }
 

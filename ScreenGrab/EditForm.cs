@@ -12,7 +12,7 @@ using System.Drawing.Imaging;
 
 namespace ScreenGrab
 {
-    public partial class EditForm : Form     {
+    public partial class EditForm : Form {
 
         public ScreenShoot screenFromScreenForm;
         public EditForm()
@@ -24,7 +24,6 @@ namespace ScreenGrab
         private void EditForm_Load(object sender, EventArgs e)
         {
             // Design
-            pictureBoxClose.Image = new Bitmap("icon/cross.png");
             pictureBoxClose.SizeMode = PictureBoxSizeMode.StretchImage;
             
             // Подгон размера pictureBox под размер картинки и его центрирование
@@ -64,36 +63,13 @@ namespace ScreenGrab
                 }
 
                 pictureBox.Image.Save(saveFileDialog.FileName, format);
-            }
 
-            this.Close();
+                this.Close();
+            }
         }
 
         private void buttonSend_Click(object sender, EventArgs e) {
             // ПОТЕНЦИАЛЬНЫЙ КОД
         }
-        
-
-        //int lx = 0, ly = 0, cx = 0, cy = 0;
-        //private void pictureBox_Paint(object sender, PaintEventArgs e) {
-        //    e.Graphics.DrawImageUnscaled(pictureBox.Image, cx, cy);
-        //}
-
-        //private void pictureBox_MouseDown(object sender, MouseEventArgs e) {
-        //    lx = e.X;
-        //    ly = e.Y;
-        //}
-
-        //private void pictureBox_MouseMove(object sender, MouseEventArgs e) {
-        //    if (pictureBox.Capture) {
-        //        int dx = e.X - lx;
-        //        int dy = e.Y - ly;
-        //        cx += dx;
-        //        cy += dy;
-        //        lx = e.X;
-        //        ly = e.Y;
-        //        pictureBox.Invalidate();
-        //    }
-        //}
     }
 }
