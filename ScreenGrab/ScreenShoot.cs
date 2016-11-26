@@ -15,8 +15,6 @@ namespace ScreenGrab {
         private Bitmap picture;
         bool moveble = true;
         
-
-
         string datatime = "";
         public ScreenShoot() {
             // Booleans for doing screen 

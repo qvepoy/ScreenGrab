@@ -15,6 +15,7 @@ namespace ScreenGrab
     public partial class EditForm : Form {
 
         public ScreenShoot screenFromScreenForm;
+
         public EditForm()
         {
             InitializeComponent();

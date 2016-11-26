@@ -13,6 +13,8 @@ namespace ScreenGrab {
 
         private MainForm mainForm;
         public ScreenShoot screenFromMainForm;
+        int x1 = 0, y1 = 0;
+
         public ScreenForm() {
             InitializeComponent();
         }
@@ -31,13 +33,16 @@ namespace ScreenGrab {
         }
 
         private void Form2_MouseDown(object sender, MouseEventArgs e) {
-            if (e.Button == MouseButtons.Right)
-                this.Close();
-            if (screenFromMainForm.Final != true) {
+            
+            if (screenFromMainForm.Final != true && e.Button == MouseButtons.Left) {
                 if (screenFromMainForm.ClickFirst == false) {
                     screenFromMainForm.X1 = MousePosition.X;
                     screenFromMainForm.Y1 = MousePosition.Y;
                     screenFromMainForm.ClickFirst = true;
+
+                    // FOR ALPHA CHANNEL
+                    x1 = screenFromMainForm.X1;
+                    y1 = screenFromMainForm.Y1;
                 } else {
                     screenFromMainForm.X2 = MousePosition.X;
                     screenFromMainForm.Y2 = MousePosition.Y;
@@ -68,6 +73,14 @@ namespace ScreenGrab {
                     editForm.Show();
                 }
             }
+
+            // Go back if right button
+            if (e.Button == MouseButtons.Right) {
+                if (screenFromMainForm.ClickFirst == true)
+                    screenFromMainForm.ClickFirst = false;
+                else
+                    this.Close();
+            }
         }
 
         private Point MousePoint = new Point();
@@ -80,6 +93,36 @@ namespace ScreenGrab {
         private void pictureBox1_Paint(object sender, PaintEventArgs e) {
             e.Graphics.DrawString(MousePoint.ToString(), this.Font, Brushes.Black,
                 new Point(MousePoint.X, MousePoint.Y - 15));
+            e.Graphics.DrawString(MousePoint.ToString(), this.Font, Brushes.White,
+                new Point(MousePoint.X-1, MousePoint.Y - 16));
+
+            int minx, miny, maxx, maxy;
+            if (x1 < MousePoint.X) {
+                minx = x1;
+                maxx = MousePoint.X;
+            } else {
+                minx = MousePoint.X;
+                maxx = x1;
+            }
+
+            if (y1 < MousePoint.Y) {
+                miny = y1;
+                maxy = MousePoint.Y;
+            } else {
+                miny = MousePoint.Y;
+                maxy = y1;
+            }
+            
+            SolidBrush Brush = new SolidBrush(Color.FromArgb(60, 0, 0, 0));
+            
+            if (screenFromMainForm.ClickFirst == true) {
+                e.Graphics.FillRectangle(Brush, 0, 0, pictureBoxScreen.Size.Width, miny);
+                e.Graphics.FillRectangle(Brush, 0, miny, minx, pictureBoxScreen.Size.Height);
+                e.Graphics.FillRectangle(Brush, maxx, miny, pictureBoxScreen.Size.Width, pictureBoxScreen.Size.Height);
+                e.Graphics.FillRectangle(Brush, minx, maxy, maxx-minx, pictureBoxScreen.Size.Height);
+            } else {
+                e.Graphics.FillRectangle(Brush, 0, 0, pictureBoxScreen.Size.Width, pictureBoxScreen.Size.Height);
+            }
         }
 
         private void ScreenForm_KeyDown(object sender, KeyEventArgs e)
