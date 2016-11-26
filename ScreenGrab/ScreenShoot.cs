@@ -69,7 +69,8 @@ namespace ScreenGrab {
         }
 
         public void SaveScreen(String name) {
-            picture.Save(name + datatime + ".bmp");
+            // Saving to root directory , need to edit
+            //picture.Save(name + datatime + ".bmp");
         }
 
         public int ScreenWeidth {

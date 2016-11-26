@@ -16,7 +16,7 @@ namespace ScreenGrab {
         //private Image pictureBoxCloseImage = new Bitmap("icon/cross.png");
 
         // Keys for screen
-        Keys screen = Keys.C; bool shift = true, ctrl = true, alt = false;
+        Keys screen = Keys.X; bool shift = true, ctrl = true, alt = false;
         KeyboardHook kh = new KeyboardHook(true);
 
         public MainForm() {
@@ -24,7 +24,7 @@ namespace ScreenGrab {
 
             this.Visible = false;
             this.IsVisibilityChangeAllowed = false;
-
+            
             notifyIcon.Text = "Screen Grab";
 
             //KeyboardHooks int z = selection=="+"? (x+y) : (x-y);
