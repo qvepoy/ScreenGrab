@@ -31,3 +31,14 @@ C:\Users\Администратор.DESKTOP-I8VL9BE\Dropbox\Programs\ScreenGrab\
 C:\Users\Almost\Dropbox\Programs\ScreenGrab\ScreenGrab\ScreenGrab\obj\Debug\ScreenGrab.EditForm.resources
 C:\Users\Almost\Dropbox\Programs\ScreenGrab\ScreenGrab\ScreenGrab\obj\Debug\ScreenGrab.MainForm.resources
 C:\Users\Almost\Dropbox\Programs\ScreenGrab\ScreenGrab\ScreenGrab\obj\Debug\ScreenGrab.ScreenForm.resources
+C:\Users\Almost\Dropbox\GitHub\ScreenGrab\ScreenGrab\bin\Debug\ScreenGrab.exe.config
+C:\Users\Almost\Dropbox\GitHub\ScreenGrab\ScreenGrab\obj\Debug\ScreenGrab.exe
+C:\Users\Almost\Dropbox\GitHub\ScreenGrab\ScreenGrab\obj\Debug\ScreenGrab.pdb
+C:\Users\Almost\Dropbox\GitHub\ScreenGrab\ScreenGrab\bin\Debug\ScreenGrab.exe
+C:\Users\Almost\Dropbox\GitHub\ScreenGrab\ScreenGrab\bin\Debug\ScreenGrab.pdb
+C:\Users\Almost\Dropbox\GitHub\ScreenGrab\ScreenGrab\obj\Debug\ScreenGrab.csprojResolveAssemblyReference.cache
+C:\Users\Almost\Dropbox\GitHub\ScreenGrab\ScreenGrab\obj\Debug\ScreenGrab.EditForm.resources
+C:\Users\Almost\Dropbox\GitHub\ScreenGrab\ScreenGrab\obj\Debug\ScreenGrab.MainForm.resources
+C:\Users\Almost\Dropbox\GitHub\ScreenGrab\ScreenGrab\obj\Debug\ScreenGrab.ScreenForm.resources
+C:\Users\Almost\Dropbox\GitHub\ScreenGrab\ScreenGrab\obj\Debug\ScreenGrab.Properties.Resources.resources
+C:\Users\Almost\Dropbox\GitHub\ScreenGrab\ScreenGrab\obj\Debug\ScreenGrab.csproj.GenerateResource.Cache

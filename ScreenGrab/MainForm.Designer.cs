@@ -178,7 +178,7 @@
             this.textBoxScreen.Size = new System.Drawing.Size(244, 23);
             this.textBoxScreen.TabIndex = 3;
             this.textBoxScreen.Click += new System.EventHandler(this.textBoxScreen_Click);
-            this.textBoxScreen.TextChanged += new System.EventHandler(this.textBoxScreen_TextChanged);
+//            this.textBoxScreen.TextChanged += new System.EventHandler(this.textBoxScreen_TextChanged);
             // 
             // label2
             // 
@@ -223,7 +223,7 @@
             this.exitToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
             this.contextMenuStrip.Size = new System.Drawing.Size(119, 70);
-            this.contextMenuStrip.MouseCaptureChanged += new System.EventHandler(this.contextMenuStrip_MouseCaptureChanged);
+     //       this.contextMenuStrip.MouseCaptureChanged += new System.EventHandler(this.contextMenuStrip_MouseCaptureChanged);
             // 
             // screenToolStripMenuItem
             // 
@@ -256,9 +256,9 @@
             this.pictureBoxClose.TabIndex = 3;
             this.pictureBoxClose.TabStop = false;
             this.pictureBoxClose.Click += new System.EventHandler(this.pictureBoxClose_Click);
-            this.pictureBoxClose.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxClose_Paint);
-            this.pictureBoxClose.MouseLeave += new System.EventHandler(this.pictureBoxClose_MouseLeave);
-            this.pictureBoxClose.MouseHover += new System.EventHandler(this.pictureBoxClose_MouseHover);
+       //     this.pictureBoxClose.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxClose_Paint);
+      //      this.pictureBoxClose.MouseLeave += new System.EventHandler(this.pictureBoxClose_MouseLeave);
+      //      this.pictureBoxClose.MouseHover += new System.EventHandler(this.pictureBoxClose_MouseHover);
             // 
             // pictureBoxHead
             // 
@@ -286,7 +286,7 @@
             this.Text = "Form1";
             this.Deactivate += new System.EventHandler(this.MainForm_Deactivate);
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
+     //       this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

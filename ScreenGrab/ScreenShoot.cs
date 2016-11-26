@@ -16,6 +16,7 @@ namespace ScreenGrab {
         bool moveble = true;
         
 
+
         string datatime = "";
         public ScreenShoot() {
             // Booleans for doing screen 
@@ -42,7 +43,6 @@ namespace ScreenGrab {
                 DateTime.Now.Minute + "-" +
                 DateTime.Now.Second;
         }
-
 
         public void CreateScreen() {
             Graphics graph = null;

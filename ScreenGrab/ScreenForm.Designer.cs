@@ -50,7 +50,7 @@
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ScreenForm_KeyDown);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ScreenForm_MouseClick);
+     //       this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ScreenForm_MouseClick);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScreen)).EndInit();
             this.ResumeLayout(false);

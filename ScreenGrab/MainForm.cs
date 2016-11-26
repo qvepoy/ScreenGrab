@@ -11,9 +11,7 @@ using System.Windows.Forms;
 
 namespace ScreenGrab {
     public partial class MainForm : Form {
-
-
-
+        
         // Resourses
         private Image pictureBoxCloseImage = new Bitmap("icon/closebutton.png");
         private Image pictureBoxCloseImageHover = new Bitmap("icon/closebutton.gif");
@@ -39,7 +37,6 @@ namespace ScreenGrab {
             textBoxScreen.Text += screen;
 
             pictureBoxClose.SizeMode = PictureBoxSizeMode.StretchImage;
-
         }
 
         bool IsVisibilityChangeAllowed { get; set; }
@@ -53,17 +50,6 @@ namespace ScreenGrab {
         private void CreateScreenShot() {
             ScreenShoot screenShot = new ScreenShoot();
             screenShot.CreateScreen();
-
-            //screenShot.SaveToBuffer = checkBoxSavePictureToBuffer.Checked;
-            //screenShot.SaveToCloudInstant = checkBoxSaveToCloud.Checked;
-            //screenShot.SaveToDiskInstant = checkBoxSaveToDisk.Checked;
-            //screenShot.SaveLink = checkBoxSaveLink.Checked;
-
-            //if (checkBoxSavePictureToBuffer.Checked ||
-            //    checkBoxSaveToCloud.Checked ||
-            //    checkBoxSaveToDisk.Checked ||
-            //    checkBoxSaveLink.Checked)
-            //    screenShot.WithoutEditing = true;
 
             ScreenForm screenForm = new ScreenForm();
             screenForm.screenFromMainForm = screenShot;
@@ -81,8 +67,7 @@ namespace ScreenGrab {
         private void MainForm_Load(object sender, EventArgs e) {
             this.Location = new Point(Screen.PrimaryScreen.Bounds.Width - this.Width - 35,
                                       Screen.PrimaryScreen.Bounds.Height - this.Height - 50);
-
-
+            
             notifyIcon.Visible = true;
         }
 
@@ -109,7 +94,6 @@ namespace ScreenGrab {
             Application.Exit();
         }
         
-
         private void MainForm_Deactivate(object sender, EventArgs e) {
             contextMenuStrip.Hide();
             this.Hide();
@@ -127,7 +111,6 @@ namespace ScreenGrab {
                 buttonCreateClip_Click();
             }
         }
-
 
         private void Kh_KeyUp(Keys key, bool Shift, bool Ctrl, bool Alt) {
             if (textBoxScreen.Enabled == false) {

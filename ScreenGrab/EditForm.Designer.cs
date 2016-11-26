@@ -126,7 +126,7 @@
             this.KeyPreview = true;
             this.Name = "EditForm";
             this.Text = "EditForm";
-            this.Deactivate += new System.EventHandler(this.EditForm_Deactivate);
+//            this.Deactivate += new System.EventHandler(this.EditForm_Deactivate);
             this.Load += new System.EventHandler(this.EditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBottom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
