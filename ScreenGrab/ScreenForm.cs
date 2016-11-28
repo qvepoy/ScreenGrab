@@ -91,11 +91,13 @@ namespace ScreenGrab {
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e) {
+            // Coordinates 
             e.Graphics.DrawString(MousePoint.ToString(), this.Font, Brushes.Black,
                 new Point(MousePoint.X, MousePoint.Y - 15));
             e.Graphics.DrawString(MousePoint.ToString(), this.Font, Brushes.White,
                 new Point(MousePoint.X-1, MousePoint.Y - 16));
 
+            // Draw four gray blocks with alpha channel
             int minx, miny, maxx, maxy;
             if (x1 < MousePoint.X) {
                 minx = x1;
@@ -123,6 +125,9 @@ namespace ScreenGrab {
             } else {
                 e.Graphics.FillRectangle(Brush, 0, 0, pictureBoxScreen.Size.Width, pictureBoxScreen.Size.Height);
             }
+
+            // Lupa 
+            
         }
 
         private void ScreenForm_KeyDown(object sender, KeyEventArgs e)
