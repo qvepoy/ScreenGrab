@@ -33,7 +33,7 @@ namespace ScreenGrab {
         }
 
         private void Form2_MouseDown(object sender, MouseEventArgs e) {
-            
+            // Click action
             if (screenFromMainForm.Final != true && e.Button == MouseButtons.Left) {
                 if (screenFromMainForm.ClickFirst == false) {
                     screenFromMainForm.X1 = MousePosition.X;
@@ -67,7 +67,7 @@ namespace ScreenGrab {
                     screenFromMainForm.Bmp = screenFromMainForm.Bmp.Clone(new Rectangle(screenFromMainForm.X1, screenFromMainForm.Y1, screenFromMainForm.X2 - screenFromMainForm.X1, screenFromMainForm.Y2 - screenFromMainForm.Y1), screenFromMainForm.Bmp.PixelFormat);
                     screenFromMainForm.SaveScreen("picture");
 
-                    // Переход к форме EDIT
+                    // Go to edit form
                     EditForm editForm = new EditForm();
                     editForm.screenFromScreenForm = screenFromMainForm;
                     editForm.Show();
@@ -80,6 +80,39 @@ namespace ScreenGrab {
                     screenFromMainForm.ClickFirst = false;
                 else
                     this.Close();
+            }
+        }
+
+        private void ScreenForm_MouseUp(object sender, MouseEventArgs e) {
+            // Drag and drop action 
+            screenFromMainForm.X2 = MousePosition.X;
+            screenFromMainForm.Y2 = MousePosition.Y;
+
+            if (screenFromMainForm.X2 != screenFromMainForm.X1 &&
+                screenFromMainForm.Y2 != screenFromMainForm.Y1) {
+                screenFromMainForm.ClickSecond = true;
+
+                if (screenFromMainForm.X1 > screenFromMainForm.X2) {
+                    int temp = screenFromMainForm.X1;
+                    screenFromMainForm.X1 = screenFromMainForm.X2;
+                    screenFromMainForm.X2 = temp;
+                }
+
+                if (screenFromMainForm.Y1 > screenFromMainForm.Y2) {
+                    int temp = screenFromMainForm.Y1;
+                    screenFromMainForm.Y1 = screenFromMainForm.Y2;
+                    screenFromMainForm.Y2 = temp;
+                }
+
+                screenFromMainForm.Final = true;
+                // Resize picture after cropping
+                screenFromMainForm.Bmp = screenFromMainForm.Bmp.Clone(new Rectangle(screenFromMainForm.X1, screenFromMainForm.Y1, screenFromMainForm.X2 - screenFromMainForm.X1, screenFromMainForm.Y2 - screenFromMainForm.Y1), screenFromMainForm.Bmp.PixelFormat);
+                screenFromMainForm.SaveScreen("picture");
+
+                // Go to edit form
+                EditForm editForm = new EditForm();
+                editForm.screenFromScreenForm = screenFromMainForm;
+                editForm.Show();
             }
         }
 
@@ -127,8 +160,11 @@ namespace ScreenGrab {
             }
 
             // Lupa 
-            
+            Point point = MousePoint;
+            point.X += 20; point.Y += 20;
         }
+
+        
 
         private void ScreenForm_KeyDown(object sender, KeyEventArgs e)
         {

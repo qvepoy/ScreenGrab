@@ -37,12 +37,13 @@
             this.pictureBoxScreen.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             this.pictureBoxScreen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseDown);
             this.pictureBoxScreen.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.pictureBoxScreen.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ScreenForm_MouseUp);
             // 
             // ScreenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(622, 333);
+            this.ClientSize = new System.Drawing.Size(676, 386);
             this.Controls.Add(this.pictureBoxScreen);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -50,8 +51,8 @@
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ScreenForm_KeyDown);
-     //       this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ScreenForm_MouseClick);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseDown);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ScreenForm_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScreen)).EndInit();
             this.ResumeLayout(false);
 
