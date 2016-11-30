@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace ScreenGrab {
     public partial class Login : Form {
+		int par;
         public Login() {
             InitializeComponent();
         }
