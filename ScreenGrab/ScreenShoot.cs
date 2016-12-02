@@ -14,6 +14,7 @@ namespace ScreenGrab {
         private int screenWeidth = 0, screenHeight = 0;
         private Bitmap picture;
         bool moveble = true;
+        int leftCorner;
         
         string datatime = "";
         public ScreenShoot() {
@@ -42,11 +43,12 @@ namespace ScreenGrab {
                 DateTime.Now.Second;
         }
 
-        public void CreateScreen() {
+        public void CreateScreen(int leftCorner) {
             Graphics graph = null;
             picture = new Bitmap(screenWeidth, screenHeight);
             graph = Graphics.FromImage(picture);
-            graph.CopyFromScreen(0, 0, 0, 0, picture.Size);
+            graph.CopyFromScreen(leftCorner, 0, 0, 0, picture.Size);
+            this.LeftCorner = leftCorner;
         }
 
         // Fit picture to pictureBox, optimize picbox size
@@ -190,6 +192,16 @@ namespace ScreenGrab {
 
             set {
                 datatime = value;
+            }
+        }
+
+        public int LeftCorner {
+            get {
+                return leftCorner;
+            }
+
+            set {
+                leftCorner = value;
             }
         }
     }

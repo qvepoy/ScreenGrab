@@ -25,10 +25,12 @@ namespace ScreenGrab {
             pictureBoxScreen.Size = new Size(screenFromMainForm.Bmp.Size.Width, screenFromMainForm.Bmp.Size.Height);
             pictureBoxScreen.Location = new Point(0, 0);
             
+            
             this.Size = new Size(screenFromMainForm.Bmp.Size.Width, screenFromMainForm.Bmp.Size.Height);
             this.Top = 0;
-            this.Left = 0;
-
+            this.Left = screenFromMainForm.LeftCorner;
+            this.Show();
+            this.TopLevel = true;
             this.TopMost = true;
         }
 
@@ -36,7 +38,7 @@ namespace ScreenGrab {
             // Click action
             if (screenFromMainForm.Final != true && e.Button == MouseButtons.Left) {
                 if (screenFromMainForm.ClickFirst == false) {
-                    screenFromMainForm.X1 = MousePosition.X;
+                    screenFromMainForm.X1 = MousePosition.X - screenFromMainForm.LeftCorner;
                     screenFromMainForm.Y1 = MousePosition.Y;
                     screenFromMainForm.ClickFirst = true;
 
@@ -44,7 +46,7 @@ namespace ScreenGrab {
                     x1 = screenFromMainForm.X1;
                     y1 = screenFromMainForm.Y1;
                 } else {
-                    screenFromMainForm.X2 = MousePosition.X;
+                    screenFromMainForm.X2 = MousePosition.X - screenFromMainForm.LeftCorner;
                     screenFromMainForm.Y2 = MousePosition.Y;
                     screenFromMainForm.ClickSecond = true;
                 }
@@ -85,8 +87,9 @@ namespace ScreenGrab {
 
         private void ScreenForm_MouseUp(object sender, MouseEventArgs e) {
             // Drag and drop action 
-            screenFromMainForm.X2 = MousePosition.X;
+            screenFromMainForm.X2 = MousePosition.X - screenFromMainForm.LeftCorner;
             screenFromMainForm.Y2 = MousePosition.Y;
+            
 
             if (screenFromMainForm.X2 != screenFromMainForm.X1 &&
                 screenFromMainForm.Y2 != screenFromMainForm.Y1) {
@@ -105,7 +108,7 @@ namespace ScreenGrab {
                 }
 
                 screenFromMainForm.Final = true;
-                // Resize picture after cropping
+                // Crop picture
                 screenFromMainForm.Bmp = screenFromMainForm.Bmp.Clone(new Rectangle(screenFromMainForm.X1, screenFromMainForm.Y1, screenFromMainForm.X2 - screenFromMainForm.X1, screenFromMainForm.Y2 - screenFromMainForm.Y1), screenFromMainForm.Bmp.PixelFormat);
                 screenFromMainForm.SaveScreen("picture");
 
@@ -126,9 +129,11 @@ namespace ScreenGrab {
         private void pictureBox1_Paint(object sender, PaintEventArgs e) {
             // Coordinates 
             e.Graphics.DrawString(MousePoint.ToString(), this.Font, Brushes.Black,
-                new Point(MousePoint.X, MousePoint.Y - 15));
+                new Point(MousePosition.X - screenFromMainForm.LeftCorner, MousePosition.Y - 15));
             e.Graphics.DrawString(MousePoint.ToString(), this.Font, Brushes.White,
-                new Point(MousePoint.X-1, MousePoint.Y - 16));
+                new Point(MousePosition.X - 1 - screenFromMainForm.LeftCorner, MousePosition.Y - 16));
+            
+            
 
             // Draw four gray blocks with alpha channel
             int minx, miny, maxx, maxy;

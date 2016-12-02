@@ -19,6 +19,8 @@ namespace ScreenGrab {
         Keys screen = Keys.X; bool shift = true, ctrl = true, alt = false;
         KeyboardHook kh = new KeyboardHook(true);
 
+        int leftCorner;
+
         public MainForm() {
             InitializeComponent();
 
@@ -37,6 +39,14 @@ namespace ScreenGrab {
 
             //pictureBoxClose.Image = pictureBoxCloseImage;
             pictureBoxClose.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            foreach (Screen screen in Screen.AllScreens) {
+                if (!screen.Primary)
+                    leftCorner = screen.Bounds.Location.X;
+            }
+
+            if (leftCorner > 0)
+                leftCorner = 0;
         }
 
         bool IsVisibilityChangeAllowed { get; set; }
@@ -49,7 +59,7 @@ namespace ScreenGrab {
 
         private void CreateScreenShot() {
             ScreenShoot screenShot = new ScreenShoot();
-            screenShot.CreateScreen();
+            screenShot.CreateScreen(leftCorner);
 
             ScreenForm screenForm = new ScreenForm();
             screenForm.screenFromMainForm = screenShot;
@@ -110,6 +120,11 @@ namespace ScreenGrab {
             if (key == screen && Shift == shift && Ctrl == ctrl && Alt == alt && textBoxScreen.Enabled == true) {
                 buttonCreateClip_Click();
             }
+
+            label1.Text += leftCorner ;
+
+
+
         }
 
         private void Kh_KeyUp(Keys key, bool Shift, bool Ctrl, bool Alt) {
