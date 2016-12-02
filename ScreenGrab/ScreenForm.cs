@@ -14,6 +14,7 @@ namespace ScreenGrab {
         private MainForm mainForm;
         public ScreenShoot screenFromMainForm;
         int x1 = 0, y1 = 0;
+        public bool instacopytobuffer;
 
         public ScreenForm() {
             InitializeComponent();
@@ -63,16 +64,8 @@ namespace ScreenGrab {
                         screenFromMainForm.Y1 = screenFromMainForm.Y2;
                         screenFromMainForm.Y2 = temp;
                     }
-                    
-                    screenFromMainForm.Final = true;
-                    // Resize picture after cropping
-                    screenFromMainForm.Bmp = screenFromMainForm.Bmp.Clone(new Rectangle(screenFromMainForm.X1, screenFromMainForm.Y1, screenFromMainForm.X2 - screenFromMainForm.X1, screenFromMainForm.Y2 - screenFromMainForm.Y1), screenFromMainForm.Bmp.PixelFormat);
-                    screenFromMainForm.SaveScreen("picture");
 
-                    // Go to edit form
-                    EditForm editForm = new EditForm();
-                    editForm.screenFromScreenForm = screenFromMainForm;
-                    editForm.Show();
+                    GoToEdit();
                 }
             }
 
@@ -107,16 +100,27 @@ namespace ScreenGrab {
                     screenFromMainForm.Y2 = temp;
                 }
 
-                screenFromMainForm.Final = true;
-                // Crop picture
-                screenFromMainForm.Bmp = screenFromMainForm.Bmp.Clone(new Rectangle(screenFromMainForm.X1, screenFromMainForm.Y1, screenFromMainForm.X2 - screenFromMainForm.X1, screenFromMainForm.Y2 - screenFromMainForm.Y1), screenFromMainForm.Bmp.PixelFormat);
-                screenFromMainForm.SaveScreen("picture");
+                GoToEdit();
+            }
+        }
 
+        void GoToEdit() {
+            screenFromMainForm.Final = true;
+            // Crop picture
+            screenFromMainForm.Bmp = screenFromMainForm.Bmp.Clone(new Rectangle(screenFromMainForm.X1, screenFromMainForm.Y1, screenFromMainForm.X2 - screenFromMainForm.X1, screenFromMainForm.Y2 - screenFromMainForm.Y1), screenFromMainForm.Bmp.PixelFormat);
+            screenFromMainForm.SaveScreen("picture");
+
+            if (!instacopytobuffer) {
                 // Go to edit form
                 EditForm editForm = new EditForm();
                 editForm.screenFromScreenForm = screenFromMainForm;
                 editForm.Show();
+            } else {
+                Clipboard.SetImage(screenFromMainForm.Bmp);
+                this.Close();
             }
+
+            
         }
 
         private Point MousePoint = new Point();

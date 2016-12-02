@@ -62,6 +62,10 @@ namespace ScreenGrab {
             screenShot.CreateScreen(leftCorner);
 
             ScreenForm screenForm = new ScreenForm();
+
+            // SEND SETTINGS TO SCREENFORM
+            screenForm.instacopytobuffer = checkBoxSavePictureToBuffer.Checked;
+
             screenForm.screenFromMainForm = screenShot;
             screenForm.Show(this);
         }
