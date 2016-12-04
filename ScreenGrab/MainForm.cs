@@ -20,6 +20,7 @@ namespace ScreenGrab {
         KeyboardHook kh = new KeyboardHook(true);
 
         int leftCorner;
+        IniFile INI = new IniFile("config.ini");
 
         public MainForm() {
             InitializeComponent();
@@ -40,6 +41,8 @@ namespace ScreenGrab {
             //pictureBoxClose.Image = pictureBoxCloseImage;
             pictureBoxClose.SizeMode = PictureBoxSizeMode.StretchImage;
 
+
+            // Setting of displays, need for fix
             foreach (Screen screen in Screen.AllScreens) {
                 if (!screen.Primary)
                     leftCorner = screen.Bounds.Location.X;
@@ -47,6 +50,22 @@ namespace ScreenGrab {
 
             if (leftCorner > 0)
                 leftCorner = 0;
+            
+
+            LoadSettings();
+        }
+
+        void LoadSettings() {
+            radioButtonSaveToDisk.Checked = Properties.Settings.Default.saveToDisk;
+            radioButtonSaveToCloud.Checked = Properties.Settings.Default.saveToCloud;
+            radioButtonSavePictureToBuffer.Checked = Properties.Settings.Default.savePictureToBuffer;
+            radioButtonSaveLinkToBuffer.Checked = Properties.Settings.Default.saveLinkToBuffer;
+            checkBoxSaveWithoutEdit.Checked = Properties.Settings.Default.saveWithoutEditing;
+            if (Properties.Settings.Default.firstloading == true) {
+                // Load login form
+                Properties.Settings.Default.firstloading = false;
+            }
+            Properties.Settings.Default.Save();
         }
 
         bool IsVisibilityChangeAllowed { get; set; }
@@ -64,7 +83,7 @@ namespace ScreenGrab {
             ScreenForm screenForm = new ScreenForm();
 
             // SEND SETTINGS TO SCREENFORM
-            screenForm.instacopytobuffer = checkBoxSavePictureToBuffer.Checked;
+            //screenForm.instacopytobuffer = checkBoxSavePictureToBuffer.Checked;
 
             screenForm.screenFromMainForm = screenShot;
             screenForm.Show(this);
@@ -117,18 +136,55 @@ namespace ScreenGrab {
 
             textBoxScreen.Enabled = false;
         }
-        
+
+        private void checkBoxSaveWithoutEdit_CheckedChanged(object sender, EventArgs e) {
+            Properties.Settings.Default.saveWithoutEditing = checkBoxSaveWithoutEdit.Checked;
+            if (checkBoxSaveWithoutEdit.Checked) {
+                panelSaveTo.Enabled = true;
+                panelToBuffer.Enabled = true;
+            } else {
+                panelSaveTo.Enabled = false;
+                panelToBuffer.Enabled = false;
+            }
+            if (!checkBoxSaveWithoutEdit.Checked) {
+                Properties.Settings.Default.saveToDisk = false;
+                Properties.Settings.Default.saveToCloud = false;
+                Properties.Settings.Default.savePictureToBuffer = false;
+                Properties.Settings.Default.saveLinkToBuffer = false;
+            }
+            Properties.Settings.Default.Save();
+        }
+
+        private void radioButtonSaveToDisk_CheckedChanged(object sender, EventArgs e) {
+            Properties.Settings.Default.saveToDisk = radioButtonSaveToDisk.Checked;
+            Properties.Settings.Default.saveToCloud = radioButtonSaveToCloud.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void radioButtonSaveToCloud_CheckedChanged(object sender, EventArgs e) {
+            Properties.Settings.Default.saveToCloud = radioButtonSaveToCloud.Checked;
+            Properties.Settings.Default.saveToDisk = radioButtonSaveToDisk.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void radioButtonSavePictureToBuffer_CheckedChanged(object sender, EventArgs e) {
+            Properties.Settings.Default.savePictureToBuffer = radioButtonSavePictureToBuffer.Checked;
+            Properties.Settings.Default.saveLinkToBuffer = radioButtonSaveLinkToBuffer.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void radioButtonSaveLinkToBuffer_CheckedChanged(object sender, EventArgs e) {
+            Properties.Settings.Default.savePictureToBuffer = radioButtonSavePictureToBuffer.Checked;
+            Properties.Settings.Default.saveLinkToBuffer = radioButtonSaveLinkToBuffer.Checked;
+            Properties.Settings.Default.Save();
+        }
+
         private void Kh_KeyDown(Keys key, bool Shift, bool Ctrl, bool Alt) {
             label1.Text = "The Key: " + key + Shift + Ctrl + Alt;
 
             if (key == screen && Shift == shift && Ctrl == ctrl && Alt == alt && textBoxScreen.Enabled == true) {
                 buttonCreateClip_Click();
             }
-
-            label1.Text += leftCorner ;
-
-
-
         }
 
         private void Kh_KeyUp(Keys key, bool Shift, bool Ctrl, bool Alt) {

@@ -110,7 +110,7 @@ namespace ScreenGrab {
             screenFromMainForm.Bmp = screenFromMainForm.Bmp.Clone(new Rectangle(screenFromMainForm.X1, screenFromMainForm.Y1, screenFromMainForm.X2 - screenFromMainForm.X1, screenFromMainForm.Y2 - screenFromMainForm.Y1), screenFromMainForm.Bmp.PixelFormat);
             screenFromMainForm.SaveScreen("picture");
 
-            if (!instacopytobuffer) {
+            if (!Properties.Settings.Default.saveWithoutEditing) {
                 // Go to edit form
                 EditForm editForm = new EditForm();
                 editForm.screenFromScreenForm = screenFromMainForm;

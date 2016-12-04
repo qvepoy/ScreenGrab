@@ -28,13 +28,8 @@
             this.buttonCreateClip = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBoxSaveToDisk = new System.Windows.Forms.CheckBox();
-            this.checkBoxSaveLink = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.checkBoxSavePictureToBuffer = new System.Windows.Forms.CheckBox();
-            this.checkBoxSaveToCloud = new System.Windows.Forms.CheckBox();
             this.textBoxScreen = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,12 +41,20 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.pictureBoxHead = new System.Windows.Forms.PictureBox();
+            this.checkBoxSaveWithoutEdit = new System.Windows.Forms.CheckBox();
+            this.radioButtonSaveToDisk = new System.Windows.Forms.RadioButton();
+            this.radioButtonSaveToCloud = new System.Windows.Forms.RadioButton();
+            this.radioButtonSavePictureToBuffer = new System.Windows.Forms.RadioButton();
+            this.radioButtonSaveLinkToBuffer = new System.Windows.Forms.RadioButton();
+            this.panelSaveTo = new System.Windows.Forms.Panel();
+            this.panelToBuffer = new System.Windows.Forms.Panel();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHead)).BeginInit();
+            this.panelSaveTo.SuspendLayout();
+            this.panelToBuffer.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonCreateClip
@@ -71,7 +74,7 @@
             // 
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
-            this.tabControl.Font = new System.Drawing.Font("OpenSymbol", 15F);
+            this.tabControl.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.Location = new System.Drawing.Point(0, 40);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -81,92 +84,39 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.panelToBuffer);
+            this.tabPage1.Controls.Add(this.panelSaveTo);
+            this.tabPage1.Controls.Add(this.checkBoxSaveWithoutEdit);
             this.tabPage1.Controls.Add(this.textBoxScreen);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.buttonCreateClip);
             this.tabPage1.ForeColor = System.Drawing.Color.Black;
-            this.tabPage1.Location = new System.Drawing.Point(4, 30);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(342, 314);
+            this.tabPage1.Size = new System.Drawing.Size(342, 315);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Settings";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.checkBoxSaveToDisk);
-            this.groupBox1.Controls.Add(this.checkBoxSaveLink);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.checkBoxSavePictureToBuffer);
-            this.groupBox1.Controls.Add(this.checkBoxSaveToCloud);
-            this.groupBox1.Location = new System.Drawing.Point(13, 54);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(310, 141);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Without Editing";
-            // 
-            // checkBoxSaveToDisk
-            // 
-            this.checkBoxSaveToDisk.AutoSize = true;
-            this.checkBoxSaveToDisk.Location = new System.Drawing.Point(97, 31);
-            this.checkBoxSaveToDisk.Name = "checkBoxSaveToDisk";
-            this.checkBoxSaveToDisk.Size = new System.Drawing.Size(58, 24);
-            this.checkBoxSaveToDisk.TabIndex = 5;
-            this.checkBoxSaveToDisk.Text = "Disk";
-            this.checkBoxSaveToDisk.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxSaveLink
-            // 
-            this.checkBoxSaveLink.AutoSize = true;
-            this.checkBoxSaveLink.Location = new System.Drawing.Point(97, 108);
-            this.checkBoxSaveLink.Name = "checkBoxSaveLink";
-            this.checkBoxSaveLink.Size = new System.Drawing.Size(55, 24);
-            this.checkBoxSaveLink.TabIndex = 9;
-            this.checkBoxSaveLink.Text = "Link";
-            this.checkBoxSaveLink.UseVisualStyleBackColor = true;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 31);
+            this.label3.Location = new System.Drawing.Point(10, 5);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 20);
+            this.label3.Size = new System.Drawing.Size(59, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Save to:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 88);
+            this.label4.Location = new System.Drawing.Point(10, 5);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 20);
+            this.label4.Size = new System.Drawing.Size(66, 20);
             this.label4.TabIndex = 8;
             this.label4.Text = "To Buffer:";
-            // 
-            // checkBoxSavePictureToBuffer
-            // 
-            this.checkBoxSavePictureToBuffer.AutoSize = true;
-            this.checkBoxSavePictureToBuffer.Location = new System.Drawing.Point(97, 88);
-            this.checkBoxSavePictureToBuffer.Name = "checkBoxSavePictureToBuffer";
-            this.checkBoxSavePictureToBuffer.Size = new System.Drawing.Size(74, 24);
-            this.checkBoxSavePictureToBuffer.TabIndex = 6;
-            this.checkBoxSavePictureToBuffer.Text = "Picture";
-            this.checkBoxSavePictureToBuffer.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxSaveToCloud
-            // 
-            this.checkBoxSaveToCloud.AutoSize = true;
-            this.checkBoxSaveToCloud.Location = new System.Drawing.Point(97, 52);
-            this.checkBoxSaveToCloud.Name = "checkBoxSaveToCloud";
-            this.checkBoxSaveToCloud.Size = new System.Drawing.Size(67, 24);
-            this.checkBoxSaveToCloud.TabIndex = 7;
-            this.checkBoxSaveToCloud.Text = "Cloud";
-            this.checkBoxSaveToCloud.UseVisualStyleBackColor = true;
             // 
             // textBoxScreen
             // 
@@ -184,16 +134,16 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(17, 19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 20);
+            this.label2.Size = new System.Drawing.Size(52, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Screen";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, -1);
+            this.label1.Location = new System.Drawing.Point(17, 236);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 20);
+            this.label1.Size = new System.Drawing.Size(61, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "labelLog";
             // 
@@ -265,6 +215,87 @@
             this.pictureBoxHead.TabIndex = 2;
             this.pictureBoxHead.TabStop = false;
             // 
+            // checkBoxSaveWithoutEdit
+            // 
+            this.checkBoxSaveWithoutEdit.AutoSize = true;
+            this.checkBoxSaveWithoutEdit.Location = new System.Drawing.Point(103, 57);
+            this.checkBoxSaveWithoutEdit.Name = "checkBoxSaveWithoutEdit";
+            this.checkBoxSaveWithoutEdit.Size = new System.Drawing.Size(129, 24);
+            this.checkBoxSaveWithoutEdit.TabIndex = 11;
+            this.checkBoxSaveWithoutEdit.Text = "Save without edit";
+            this.checkBoxSaveWithoutEdit.UseVisualStyleBackColor = true;
+            this.checkBoxSaveWithoutEdit.CheckedChanged += new System.EventHandler(this.checkBoxSaveWithoutEdit_CheckedChanged);
+            // 
+            // radioButtonSaveToDisk
+            // 
+            this.radioButtonSaveToDisk.AutoSize = true;
+            this.radioButtonSaveToDisk.Location = new System.Drawing.Point(86, 5);
+            this.radioButtonSaveToDisk.Name = "radioButtonSaveToDisk";
+            this.radioButtonSaveToDisk.Size = new System.Drawing.Size(53, 24);
+            this.radioButtonSaveToDisk.TabIndex = 12;
+            this.radioButtonSaveToDisk.TabStop = true;
+            this.radioButtonSaveToDisk.Text = "Disc";
+            this.radioButtonSaveToDisk.UseVisualStyleBackColor = true;
+            this.radioButtonSaveToDisk.CheckedChanged += new System.EventHandler(this.radioButtonSaveToDisk_CheckedChanged);
+            // 
+            // radioButtonSaveToCloud
+            // 
+            this.radioButtonSaveToCloud.AutoSize = true;
+            this.radioButtonSaveToCloud.Location = new System.Drawing.Point(162, 5);
+            this.radioButtonSaveToCloud.Name = "radioButtonSaveToCloud";
+            this.radioButtonSaveToCloud.Size = new System.Drawing.Size(62, 24);
+            this.radioButtonSaveToCloud.TabIndex = 13;
+            this.radioButtonSaveToCloud.TabStop = true;
+            this.radioButtonSaveToCloud.Text = "Cloud";
+            this.radioButtonSaveToCloud.UseVisualStyleBackColor = true;
+            this.radioButtonSaveToCloud.CheckedChanged += new System.EventHandler(this.radioButtonSaveToCloud_CheckedChanged);
+            // 
+            // radioButtonSavePictureToBuffer
+            // 
+            this.radioButtonSavePictureToBuffer.AutoSize = true;
+            this.radioButtonSavePictureToBuffer.Location = new System.Drawing.Point(86, 5);
+            this.radioButtonSavePictureToBuffer.Name = "radioButtonSavePictureToBuffer";
+            this.radioButtonSavePictureToBuffer.Size = new System.Drawing.Size(68, 24);
+            this.radioButtonSavePictureToBuffer.TabIndex = 14;
+            this.radioButtonSavePictureToBuffer.TabStop = true;
+            this.radioButtonSavePictureToBuffer.Text = "Picture";
+            this.radioButtonSavePictureToBuffer.UseVisualStyleBackColor = true;
+            this.radioButtonSavePictureToBuffer.CheckedChanged += new System.EventHandler(this.radioButtonSavePictureToBuffer_CheckedChanged);
+            // 
+            // radioButtonSaveLinkToBuffer
+            // 
+            this.radioButtonSaveLinkToBuffer.AutoSize = true;
+            this.radioButtonSaveLinkToBuffer.Location = new System.Drawing.Point(162, 5);
+            this.radioButtonSaveLinkToBuffer.Name = "radioButtonSaveLinkToBuffer";
+            this.radioButtonSaveLinkToBuffer.Size = new System.Drawing.Size(51, 24);
+            this.radioButtonSaveLinkToBuffer.TabIndex = 15;
+            this.radioButtonSaveLinkToBuffer.TabStop = true;
+            this.radioButtonSaveLinkToBuffer.Text = "Link";
+            this.radioButtonSaveLinkToBuffer.UseVisualStyleBackColor = true;
+            this.radioButtonSaveLinkToBuffer.CheckedChanged += new System.EventHandler(this.radioButtonSaveLinkToBuffer_CheckedChanged);
+            // 
+            // panelSaveTo
+            // 
+            this.panelSaveTo.Controls.Add(this.radioButtonSaveToCloud);
+            this.panelSaveTo.Controls.Add(this.label3);
+            this.panelSaveTo.Controls.Add(this.radioButtonSaveToDisk);
+            this.panelSaveTo.Enabled = false;
+            this.panelSaveTo.Location = new System.Drawing.Point(46, 94);
+            this.panelSaveTo.Name = "panelSaveTo";
+            this.panelSaveTo.Size = new System.Drawing.Size(235, 32);
+            this.panelSaveTo.TabIndex = 16;
+            // 
+            // panelToBuffer
+            // 
+            this.panelToBuffer.Controls.Add(this.radioButtonSaveLinkToBuffer);
+            this.panelToBuffer.Controls.Add(this.label4);
+            this.panelToBuffer.Controls.Add(this.radioButtonSavePictureToBuffer);
+            this.panelToBuffer.Enabled = false;
+            this.panelToBuffer.Location = new System.Drawing.Point(46, 132);
+            this.panelToBuffer.Name = "panelToBuffer";
+            this.panelToBuffer.Size = new System.Drawing.Size(235, 32);
+            this.panelToBuffer.TabIndex = 17;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -284,11 +315,13 @@
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.contextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHead)).EndInit();
+            this.panelSaveTo.ResumeLayout(false);
+            this.panelSaveTo.PerformLayout();
+            this.panelToBuffer.ResumeLayout(false);
+            this.panelToBuffer.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -309,13 +342,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxScreen;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox checkBoxSaveToCloud;
-        private System.Windows.Forms.CheckBox checkBoxSavePictureToBuffer;
-        private System.Windows.Forms.CheckBox checkBoxSaveToDisk;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox checkBoxSaveLink;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox checkBoxSaveWithoutEdit;
+        private System.Windows.Forms.RadioButton radioButtonSaveLinkToBuffer;
+        private System.Windows.Forms.RadioButton radioButtonSavePictureToBuffer;
+        private System.Windows.Forms.RadioButton radioButtonSaveToCloud;
+        private System.Windows.Forms.RadioButton radioButtonSaveToDisk;
+        private System.Windows.Forms.Panel panelToBuffer;
+        private System.Windows.Forms.Panel panelSaveTo;
     }
 }
 

@@ -52,6 +52,7 @@
     <Compile Include="EditForm.Designer.cs">
       <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IniFile.cs" />
     <Compile Include="KeyboardHook.cs" />
     <Compile Include="LanguageSettings.cs" />
     <Compile Include="Login.cs">
