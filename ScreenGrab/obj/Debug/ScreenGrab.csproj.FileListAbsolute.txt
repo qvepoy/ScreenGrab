@@ -42,3 +42,4 @@ C:\Users\Almost\Dropbox\GitHub\ScreenGrab\ScreenGrab\obj\Debug\ScreenGrab.MainFo
 C:\Users\Almost\Dropbox\GitHub\ScreenGrab\ScreenGrab\obj\Debug\ScreenGrab.ScreenForm.resources
 C:\Users\Almost\Dropbox\GitHub\ScreenGrab\ScreenGrab\obj\Debug\ScreenGrab.Properties.Resources.resources
 C:\Users\Almost\Dropbox\GitHub\ScreenGrab\ScreenGrab\obj\Debug\ScreenGrab.csproj.GenerateResource.Cache
+C:\Users\Almost\Dropbox\GitHub\ScreenGrab\ScreenGrab\obj\Debug\ScreenGrab.Login.resources

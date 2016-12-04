@@ -51,16 +51,22 @@ namespace ScreenGrab {
             if (leftCorner > 0)
                 leftCorner = 0;
             
-
             LoadSettings();
         }
 
         void LoadSettings() {
+            checkBoxSaveWithoutEdit.Checked = Properties.Settings.Default.saveWithoutEditing;
             radioButtonSaveToDisk.Checked = Properties.Settings.Default.saveToDisk;
             radioButtonSaveToCloud.Checked = Properties.Settings.Default.saveToCloud;
             radioButtonSavePictureToBuffer.Checked = Properties.Settings.Default.savePictureToBuffer;
             radioButtonSaveLinkToBuffer.Checked = Properties.Settings.Default.saveLinkToBuffer;
-            checkBoxSaveWithoutEdit.Checked = Properties.Settings.Default.saveWithoutEditing;
+            if (Properties.Settings.Default.signin == false) {
+                radioButtonSaveToCloud.Enabled = false;
+                radioButtonSaveToCloud.Checked = false;
+
+                radioButtonSaveLinkToBuffer.Enabled = false;
+                radioButtonSaveLinkToBuffer.Checked = false;
+            }
             if (Properties.Settings.Default.firstloading == true) {
                 // Load login form
                 Properties.Settings.Default.firstloading = false;
@@ -177,6 +183,11 @@ namespace ScreenGrab {
             Properties.Settings.Default.savePictureToBuffer = radioButtonSavePictureToBuffer.Checked;
             Properties.Settings.Default.saveLinkToBuffer = radioButtonSaveLinkToBuffer.Checked;
             Properties.Settings.Default.Save();
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            Login login = new Login();
+            login.Show(this);
         }
 
         private void Kh_KeyDown(Keys key, bool Shift, bool Ctrl, bool Alt) {

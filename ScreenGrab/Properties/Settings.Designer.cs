@@ -118,5 +118,17 @@ namespace ScreenGrab.Properties {
                 this["firstloading"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool signin {
+            get {
+                return ((bool)(this["signin"]));
+            }
+            set {
+                this["signin"] = value;
+            }
+        }
     }
 }

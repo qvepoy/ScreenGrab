@@ -28,8 +28,15 @@
             this.buttonCreateClip = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
+            this.panelToBuffer = new System.Windows.Forms.Panel();
+            this.radioButtonSaveLinkToBuffer = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
+            this.radioButtonSavePictureToBuffer = new System.Windows.Forms.RadioButton();
+            this.panelSaveTo = new System.Windows.Forms.Panel();
+            this.radioButtonSaveToCloud = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.radioButtonSaveToDisk = new System.Windows.Forms.RadioButton();
+            this.checkBoxSaveWithoutEdit = new System.Windows.Forms.CheckBox();
             this.textBoxScreen = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,20 +48,14 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.pictureBoxHead = new System.Windows.Forms.PictureBox();
-            this.checkBoxSaveWithoutEdit = new System.Windows.Forms.CheckBox();
-            this.radioButtonSaveToDisk = new System.Windows.Forms.RadioButton();
-            this.radioButtonSaveToCloud = new System.Windows.Forms.RadioButton();
-            this.radioButtonSavePictureToBuffer = new System.Windows.Forms.RadioButton();
-            this.radioButtonSaveLinkToBuffer = new System.Windows.Forms.RadioButton();
-            this.panelSaveTo = new System.Windows.Forms.Panel();
-            this.panelToBuffer = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panelToBuffer.SuspendLayout();
+            this.panelSaveTo.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHead)).BeginInit();
-            this.panelSaveTo.SuspendLayout();
-            this.panelToBuffer.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonCreateClip
@@ -84,6 +85,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.panelToBuffer);
             this.tabPage1.Controls.Add(this.panelSaveTo);
             this.tabPage1.Controls.Add(this.checkBoxSaveWithoutEdit);
@@ -100,14 +102,28 @@
             this.tabPage1.Text = "Settings";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // panelToBuffer
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Save to:";
+            this.panelToBuffer.Controls.Add(this.radioButtonSaveLinkToBuffer);
+            this.panelToBuffer.Controls.Add(this.label4);
+            this.panelToBuffer.Controls.Add(this.radioButtonSavePictureToBuffer);
+            this.panelToBuffer.Enabled = false;
+            this.panelToBuffer.Location = new System.Drawing.Point(49, 121);
+            this.panelToBuffer.Name = "panelToBuffer";
+            this.panelToBuffer.Size = new System.Drawing.Size(235, 32);
+            this.panelToBuffer.TabIndex = 17;
+            // 
+            // radioButtonSaveLinkToBuffer
+            // 
+            this.radioButtonSaveLinkToBuffer.AutoSize = true;
+            this.radioButtonSaveLinkToBuffer.Location = new System.Drawing.Point(162, 5);
+            this.radioButtonSaveLinkToBuffer.Name = "radioButtonSaveLinkToBuffer";
+            this.radioButtonSaveLinkToBuffer.Size = new System.Drawing.Size(51, 24);
+            this.radioButtonSaveLinkToBuffer.TabIndex = 15;
+            this.radioButtonSaveLinkToBuffer.TabStop = true;
+            this.radioButtonSaveLinkToBuffer.Text = "Link";
+            this.radioButtonSaveLinkToBuffer.UseVisualStyleBackColor = true;
+            this.radioButtonSaveLinkToBuffer.CheckedChanged += new System.EventHandler(this.radioButtonSaveLinkToBuffer_CheckedChanged);
             // 
             // label4
             // 
@@ -118,10 +134,77 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "To Buffer:";
             // 
+            // radioButtonSavePictureToBuffer
+            // 
+            this.radioButtonSavePictureToBuffer.AutoSize = true;
+            this.radioButtonSavePictureToBuffer.Location = new System.Drawing.Point(86, 5);
+            this.radioButtonSavePictureToBuffer.Name = "radioButtonSavePictureToBuffer";
+            this.radioButtonSavePictureToBuffer.Size = new System.Drawing.Size(68, 24);
+            this.radioButtonSavePictureToBuffer.TabIndex = 14;
+            this.radioButtonSavePictureToBuffer.TabStop = true;
+            this.radioButtonSavePictureToBuffer.Text = "Picture";
+            this.radioButtonSavePictureToBuffer.UseVisualStyleBackColor = true;
+            this.radioButtonSavePictureToBuffer.CheckedChanged += new System.EventHandler(this.radioButtonSavePictureToBuffer_CheckedChanged);
+            // 
+            // panelSaveTo
+            // 
+            this.panelSaveTo.Controls.Add(this.radioButtonSaveToCloud);
+            this.panelSaveTo.Controls.Add(this.label3);
+            this.panelSaveTo.Controls.Add(this.radioButtonSaveToDisk);
+            this.panelSaveTo.Enabled = false;
+            this.panelSaveTo.Location = new System.Drawing.Point(49, 83);
+            this.panelSaveTo.Name = "panelSaveTo";
+            this.panelSaveTo.Size = new System.Drawing.Size(235, 32);
+            this.panelSaveTo.TabIndex = 16;
+            // 
+            // radioButtonSaveToCloud
+            // 
+            this.radioButtonSaveToCloud.AutoSize = true;
+            this.radioButtonSaveToCloud.Location = new System.Drawing.Point(162, 5);
+            this.radioButtonSaveToCloud.Name = "radioButtonSaveToCloud";
+            this.radioButtonSaveToCloud.Size = new System.Drawing.Size(62, 24);
+            this.radioButtonSaveToCloud.TabIndex = 13;
+            this.radioButtonSaveToCloud.TabStop = true;
+            this.radioButtonSaveToCloud.Text = "Cloud";
+            this.radioButtonSaveToCloud.UseVisualStyleBackColor = true;
+            this.radioButtonSaveToCloud.CheckedChanged += new System.EventHandler(this.radioButtonSaveToCloud_CheckedChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Save to:";
+            // 
+            // radioButtonSaveToDisk
+            // 
+            this.radioButtonSaveToDisk.AutoSize = true;
+            this.radioButtonSaveToDisk.Location = new System.Drawing.Point(86, 5);
+            this.radioButtonSaveToDisk.Name = "radioButtonSaveToDisk";
+            this.radioButtonSaveToDisk.Size = new System.Drawing.Size(53, 24);
+            this.radioButtonSaveToDisk.TabIndex = 12;
+            this.radioButtonSaveToDisk.TabStop = true;
+            this.radioButtonSaveToDisk.Text = "Disc";
+            this.radioButtonSaveToDisk.UseVisualStyleBackColor = true;
+            this.radioButtonSaveToDisk.CheckedChanged += new System.EventHandler(this.radioButtonSaveToDisk_CheckedChanged);
+            // 
+            // checkBoxSaveWithoutEdit
+            // 
+            this.checkBoxSaveWithoutEdit.AutoSize = true;
+            this.checkBoxSaveWithoutEdit.Location = new System.Drawing.Point(106, 53);
+            this.checkBoxSaveWithoutEdit.Name = "checkBoxSaveWithoutEdit";
+            this.checkBoxSaveWithoutEdit.Size = new System.Drawing.Size(129, 24);
+            this.checkBoxSaveWithoutEdit.TabIndex = 11;
+            this.checkBoxSaveWithoutEdit.Text = "Save without edit";
+            this.checkBoxSaveWithoutEdit.UseVisualStyleBackColor = true;
+            this.checkBoxSaveWithoutEdit.CheckedChanged += new System.EventHandler(this.checkBoxSaveWithoutEdit_CheckedChanged);
+            // 
             // textBoxScreen
             // 
             this.textBoxScreen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBoxScreen.Location = new System.Drawing.Point(79, 16);
+            this.textBoxScreen.Location = new System.Drawing.Point(75, 164);
             this.textBoxScreen.MaxLength = 30;
             this.textBoxScreen.Multiline = true;
             this.textBoxScreen.Name = "textBoxScreen";
@@ -132,7 +215,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 19);
+            this.label2.Location = new System.Drawing.Point(17, 164);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 20);
             this.label2.TabIndex = 2;
@@ -149,10 +232,10 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 30);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(342, 314);
+            this.tabPage2.Size = new System.Drawing.Size(342, 315);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Collection";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -215,93 +298,25 @@
             this.pictureBoxHead.TabIndex = 2;
             this.pictureBoxHead.TabStop = false;
             // 
-            // checkBoxSaveWithoutEdit
+            // button1
             // 
-            this.checkBoxSaveWithoutEdit.AutoSize = true;
-            this.checkBoxSaveWithoutEdit.Location = new System.Drawing.Point(103, 57);
-            this.checkBoxSaveWithoutEdit.Name = "checkBoxSaveWithoutEdit";
-            this.checkBoxSaveWithoutEdit.Size = new System.Drawing.Size(129, 24);
-            this.checkBoxSaveWithoutEdit.TabIndex = 11;
-            this.checkBoxSaveWithoutEdit.Text = "Save without edit";
-            this.checkBoxSaveWithoutEdit.UseVisualStyleBackColor = true;
-            this.checkBoxSaveWithoutEdit.CheckedChanged += new System.EventHandler(this.checkBoxSaveWithoutEdit_CheckedChanged);
-            // 
-            // radioButtonSaveToDisk
-            // 
-            this.radioButtonSaveToDisk.AutoSize = true;
-            this.radioButtonSaveToDisk.Location = new System.Drawing.Point(86, 5);
-            this.radioButtonSaveToDisk.Name = "radioButtonSaveToDisk";
-            this.radioButtonSaveToDisk.Size = new System.Drawing.Size(53, 24);
-            this.radioButtonSaveToDisk.TabIndex = 12;
-            this.radioButtonSaveToDisk.TabStop = true;
-            this.radioButtonSaveToDisk.Text = "Disc";
-            this.radioButtonSaveToDisk.UseVisualStyleBackColor = true;
-            this.radioButtonSaveToDisk.CheckedChanged += new System.EventHandler(this.radioButtonSaveToDisk_CheckedChanged);
-            // 
-            // radioButtonSaveToCloud
-            // 
-            this.radioButtonSaveToCloud.AutoSize = true;
-            this.radioButtonSaveToCloud.Location = new System.Drawing.Point(162, 5);
-            this.radioButtonSaveToCloud.Name = "radioButtonSaveToCloud";
-            this.radioButtonSaveToCloud.Size = new System.Drawing.Size(62, 24);
-            this.radioButtonSaveToCloud.TabIndex = 13;
-            this.radioButtonSaveToCloud.TabStop = true;
-            this.radioButtonSaveToCloud.Text = "Cloud";
-            this.radioButtonSaveToCloud.UseVisualStyleBackColor = true;
-            this.radioButtonSaveToCloud.CheckedChanged += new System.EventHandler(this.radioButtonSaveToCloud_CheckedChanged);
-            // 
-            // radioButtonSavePictureToBuffer
-            // 
-            this.radioButtonSavePictureToBuffer.AutoSize = true;
-            this.radioButtonSavePictureToBuffer.Location = new System.Drawing.Point(86, 5);
-            this.radioButtonSavePictureToBuffer.Name = "radioButtonSavePictureToBuffer";
-            this.radioButtonSavePictureToBuffer.Size = new System.Drawing.Size(68, 24);
-            this.radioButtonSavePictureToBuffer.TabIndex = 14;
-            this.radioButtonSavePictureToBuffer.TabStop = true;
-            this.radioButtonSavePictureToBuffer.Text = "Picture";
-            this.radioButtonSavePictureToBuffer.UseVisualStyleBackColor = true;
-            this.radioButtonSavePictureToBuffer.CheckedChanged += new System.EventHandler(this.radioButtonSavePictureToBuffer_CheckedChanged);
-            // 
-            // radioButtonSaveLinkToBuffer
-            // 
-            this.radioButtonSaveLinkToBuffer.AutoSize = true;
-            this.radioButtonSaveLinkToBuffer.Location = new System.Drawing.Point(162, 5);
-            this.radioButtonSaveLinkToBuffer.Name = "radioButtonSaveLinkToBuffer";
-            this.radioButtonSaveLinkToBuffer.Size = new System.Drawing.Size(51, 24);
-            this.radioButtonSaveLinkToBuffer.TabIndex = 15;
-            this.radioButtonSaveLinkToBuffer.TabStop = true;
-            this.radioButtonSaveLinkToBuffer.Text = "Link";
-            this.radioButtonSaveLinkToBuffer.UseVisualStyleBackColor = true;
-            this.radioButtonSaveLinkToBuffer.CheckedChanged += new System.EventHandler(this.radioButtonSaveLinkToBuffer_CheckedChanged);
-            // 
-            // panelSaveTo
-            // 
-            this.panelSaveTo.Controls.Add(this.radioButtonSaveToCloud);
-            this.panelSaveTo.Controls.Add(this.label3);
-            this.panelSaveTo.Controls.Add(this.radioButtonSaveToDisk);
-            this.panelSaveTo.Enabled = false;
-            this.panelSaveTo.Location = new System.Drawing.Point(46, 94);
-            this.panelSaveTo.Name = "panelSaveTo";
-            this.panelSaveTo.Size = new System.Drawing.Size(235, 32);
-            this.panelSaveTo.TabIndex = 16;
-            // 
-            // panelToBuffer
-            // 
-            this.panelToBuffer.Controls.Add(this.radioButtonSaveLinkToBuffer);
-            this.panelToBuffer.Controls.Add(this.label4);
-            this.panelToBuffer.Controls.Add(this.radioButtonSavePictureToBuffer);
-            this.panelToBuffer.Enabled = false;
-            this.panelToBuffer.Location = new System.Drawing.Point(46, 132);
-            this.panelToBuffer.Name = "panelToBuffer";
-            this.panelToBuffer.Size = new System.Drawing.Size(235, 32);
-            this.panelToBuffer.TabIndex = 17;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(96, 14);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 33);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Login";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(350, 400);
+            this.ClientSize = new System.Drawing.Size(350, 401);
             this.Controls.Add(this.pictureBoxClose);
             this.Controls.Add(this.pictureBoxHead);
             this.Controls.Add(this.tabControl);
@@ -315,13 +330,13 @@
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.panelToBuffer.ResumeLayout(false);
+            this.panelToBuffer.PerformLayout();
+            this.panelSaveTo.ResumeLayout(false);
+            this.panelSaveTo.PerformLayout();
             this.contextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHead)).EndInit();
-            this.panelSaveTo.ResumeLayout(false);
-            this.panelSaveTo.PerformLayout();
-            this.panelToBuffer.ResumeLayout(false);
-            this.panelToBuffer.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -351,6 +366,7 @@
         private System.Windows.Forms.RadioButton radioButtonSaveToDisk;
         private System.Windows.Forms.Panel panelToBuffer;
         private System.Windows.Forms.Panel panelSaveTo;
+        public System.Windows.Forms.Button button1;
     }
 }
 
