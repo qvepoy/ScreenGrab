@@ -148,6 +148,8 @@ namespace ScreenGrab {
             if (checkBoxSaveWithoutEdit.Checked) {
                 panelSaveTo.Enabled = true;
                 panelToBuffer.Enabled = true;
+                radioButtonSavePictureToBuffer.Checked = true;
+                radioButtonSaveToDisk.Checked = true;
             } else {
                 panelSaveTo.Enabled = false;
                 panelToBuffer.Enabled = false;
