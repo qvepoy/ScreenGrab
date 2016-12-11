@@ -41,15 +41,7 @@ namespace ScreenGrab {
             //pictureBoxClose.Image = pictureBoxCloseImage;
             pictureBoxClose.SizeMode = PictureBoxSizeMode.StretchImage;
 
-
-            // Setting of displays, need for fix
-            foreach (Screen screen in Screen.AllScreens) {
-                if (!screen.Primary)
-                    leftCorner = screen.Bounds.Location.X;
-            }
-
-            if (leftCorner > 0)
-                leftCorner = 0;
+            
             
             LoadSettings();
         }
@@ -83,14 +75,19 @@ namespace ScreenGrab {
         }
 
         private void CreateScreenShot() {
+            // Setting of displays, need for fix
+            foreach (Screen screen in Screen.AllScreens) {
+                if (!screen.Primary)
+                    leftCorner = screen.Bounds.Location.X;
+            }
+
+            if (leftCorner > 0)
+                leftCorner = 0;
+
             ScreenShoot screenShot = new ScreenShoot();
             screenShot.CreateScreen(leftCorner);
 
             ScreenForm screenForm = new ScreenForm();
-
-            // SEND SETTINGS TO SCREENFORM
-            //screenForm.instacopytobuffer = checkBoxSavePictureToBuffer.Checked;
-
             screenForm.screenFromMainForm = screenShot;
             screenForm.Show(this);
         }

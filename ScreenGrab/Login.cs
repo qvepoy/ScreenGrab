@@ -11,6 +11,8 @@ using System.Windows.Forms;
 namespace ScreenGrab {
     public partial class Login : Form {
 		
+		int pas, login;
+		
         public Login() {
             InitializeComponent();
         }
